@@ -38,6 +38,10 @@ void __interrupt_vec(PORT2_VECTOR) Port_2(){
     P2IFG &= ~SW1;
     switch_interrupt_handler_SW1();
   }
+  if(P2IFG & SW2){
+    P2IFG &= ~SW2;
+    switch_interrupt_handler_SW2();
+  }
 }
 
 
@@ -58,4 +62,35 @@ void switch_interrupt_handler_SW1(){
     fillRectangle(25,85,20,20,COLOR_BLACK);
     fillRectangle(85,85,20,20,COLOR_BLACK);
   }
+}
+
+void switch_interrupt_handler_SW2(){
+  char p2 = P2IN;
+
+  P2IES |= (p2 & switches);
+  P2IES &= (p2 & ~switches);
+
+  if(p2 & SW2){
+    
+  }
+  else{
+    clearScreen(COLOR_BLUE);
+    fillRectangle(15,30,100,100, COLOR_WHITE);
+    fillRectangle(35,50,20,20,COLOR_BLACK);
+    fillRectangle(75,50,20,20,COLOR_BLACK);
+
+    for(short col = 0;col < 40; col++){
+      for(short row = 0; row < col; row++){
+	drawPixel(25 + col, 90 + row, COLOR_YELLOW);
+      }
+   }
+    for(short col = 0; col < 40; col++){
+      for(short row = 0; row < col; row++){
+	drawPixel(100 - col, 90 + row, COLOR_YELLOW);
+      }
+   }
+    fillRectangle(screenWidth/2 - 25, 130, 50, 20, COLOR_RED);
+
+  }
+  
 }
