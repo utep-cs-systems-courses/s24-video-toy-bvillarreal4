@@ -48,7 +48,7 @@ void switch_interrupt_handler_SW1(){
   P2IES &= (p2 | ~switches);
 
   if(p2 & SW1){
-    clearScreen(COLOR_BLUE);
+    // clearScreen(COLOR_BLUE);
   }
   else{
     fillRectangle(15,30, 100, 100, COLOR_ORANGE);
