@@ -2,6 +2,7 @@
 #include "lcdutils.h"
 #include "lcddraw.h"
 #include <msp430.h>
+#include "buzzer.h"
 
 #define SW1 BIT0
 #define SW2 BIT1
@@ -17,6 +18,7 @@ main()
 {
   configureClocks();
   lcd_init();
+  buzzer_init();
   u_char width = screenWidth, height = screenHeight;
 
   clearScreen(COLOR_BLUE);
@@ -150,9 +152,11 @@ void switch_interrupt_handler_SW4(){
   P2IES &= (p2 & ~switches);
 
   if(p2 & SW4){
+    buzzer_set_period(0);
   }
   else{
     clearScreen(COLOR_BLUE);
+
     
     //basketball goal
     fillRectangle(50,70, 30, 100, COLOR_BLACK);
@@ -198,5 +202,20 @@ void switch_interrupt_handler_SW4(){
     fillRectangle(30,100,3,20,COLOR_GREEN);
     fillRectangle(120, 120,3,25,COLOR_GREEN);
     fillRectangle(25, 140, 3, 18, COLOR_RED);
+
+    //buzzer
+    buzzer_set_period(632);
+    __delay_cycles(1000000);
+    buzzer_set_period(550);
+    __delay_cycles(1000000);
+    buzzer_set_period(440);
+    __delay_cycles(1000000);
+
+    buzzer_set_period(632);
+    __delay_cycles(1000000);
+    buzzer_set_period(550);
+    __delay_cycles(1000000);
+    buzzer_set_period(440);
+    __delay_cycles(1000000);
   }
 }
