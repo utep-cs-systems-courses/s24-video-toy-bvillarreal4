@@ -1,4 +1,13 @@
 # lcdLib from Project 3: LCD Game
+
+##Description
+
+Button 1: draws a smiley face
+Button 2: draws a chicken face
+Button 3: draws a basketball net
+Button 4: draws a basketball net with the ball inside the net, adds confetti
+and plays a ring
+
 ## Introduction
 
 lcdLib provides primitives for a pixel, rectangle, clearing the screen and a 5x7 font. Handles all the lower-level "messy stuff". 
