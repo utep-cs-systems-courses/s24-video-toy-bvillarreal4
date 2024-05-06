@@ -188,10 +188,15 @@ void switch_interrupt_handler_SW4(){
     drawString5x7(30,15,"NICE SHOT!",COLOR_BLACK,COLOR_WHITE);
 
     //confetti
-    fillRectangle(15,15,3,10,COLOR_RED);
-    fillRectangle(5,30,3,10,COLOR_YELLOW);
-    fillRectangle(10,60,3,10,COLOR_GREEN);
-    fillRectangle(90, 15,3,10,COLOR_GREEN);
-    fillRectangle(100, 30, 3, 10, COLOR_RED);
+    fillRectangle(15,15,3,15,COLOR_RED);
+    fillRectangle(5,30,3,15,COLOR_YELLOW);
+    fillRectangle(10,60,3,15,COLOR_GREEN);
+    fillRectangle(110, 15,3,15,COLOR_GREEN);
+    fillRectangle(130, 30, 3, 15, COLOR_RED);
+    fillRectangle(120,40,3,15,COLOR_RED);
+    fillRectangle(115,80,3,20,COLOR_YELLOW);
+    fillRectangle(30,100,3,20,COLOR_GREEN);
+    fillRectangle(120, 120,3,25,COLOR_GREEN);
+    fillRectangle(25, 140, 3, 18, COLOR_RED);
   }
 }
